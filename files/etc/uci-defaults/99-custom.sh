@@ -59,14 +59,6 @@ case "$board_name" in
 esac
 
 # 3. 配置网络
-if [ "$count" -eq 1 ]; then
-    # 单网口设备，DHCP模式
-    uci set network.lan.proto='dhcp'
-    uci delete network.lan.ipaddr
-    uci delete network.lan.netmask
-    uci delete network.lan.gateway
-    uci delete network.lan.dns
-    uci commit network
 elif [ "$count" -gt 1 ]; then
     # 多网口设备配置
     # 配置WAN
